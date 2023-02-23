@@ -1,0 +1,14 @@
+ /* We want the square to be 200 pixels, at a 10x20 grid that means we would need to make the width 200px and the height 400px */
+ .grid{
+    width:200px;
+    height:400px;
+    background-color:yellow;
+
+ }
+/* This affects all 200 pixels, now we need to shape the pixels to what they are going to be which is 20x20 */
+ .grid div {
+    height:20px;
+    width:20px;
+    background-color:red;
+
+ }
