@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function(){
     // start off by telling our js file the width of our grid is 10
     const width = 10
 
+    //This creates  a const variable that asigns the html score element to js, we use the hash since it was an id 
+    const ScoreDisplay = document.querySelector('#score')
+
+    //This creates  a const variable that asigns the html score element to js, we use the hash since it was an id 
+    const StartBtn = document.querySelector('#start-button')
+
     //querySelectorAll in this case allows us to communicate with all 200 divs in our html file which we already turned into squares. 
     //Array.from in this case will turn all of the 200 individual squares into an array, thus, now we have an array that goes from 0-199 which represents individual squares
     // squares = [<div>,<div>,<div>,<div>,<div>,<div>... etc]
@@ -15,8 +21,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let squares = Array.from(document.querySelectorAll('.grid div'))
 
 
-    console.log(squres)
-
+   
 
 
 
