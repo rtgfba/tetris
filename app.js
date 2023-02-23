@@ -69,6 +69,32 @@ document.addEventListener('DOMContentLoaded', function(){
     ];
 
 
+    //Create an array of all the tetromino pieces
+    const theTetrominoes = [lTetromino,sTetromino,tTetromino,bTetromino,cTetromino,iTetromino]
+
+
+    //Decide where we want to draw the tetromino on the 10x20 grid
+    //Where the position of the first square of the first tetromino rotation will be 
+    
+    let currentPosition = 4
+
+    //Pick a tetromino and its first rotation
+
+    let current = theTetrominoes[0][0]
+
+
+    //draw the first rotation in the first tetromino
+    //colorTetromino is the required function for the "forEach method", the v represents the first parameter, value, which is the value of each tetrimno position 
+    //which we will then use to locate the correct current position in the square array , we also add current position because it places 
+    //it in the middle of the grid instead of the left side, .forEach (function aName(value,index,array))
+    //We access stylesheet to color the tetromino through .classList.add
+    
+    function draw(){
+        current.forEach(function colorTetromino(v){
+            squares[currentPosition + v].classList.add('tetromino')
+        });
+    };
+
 
 
 
@@ -105,20 +131,3 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-
-
-
-//understanding the .forEach method for arrays :)
-// let testArray = [55, 747, 353, 8]
-// testArray.forEach((v,i)=>{
-//     console.log(v,i-1)
-// });
-// let testArray = [55, 747, 353, 8]
-// testArray.forEach(function n(v,i){
-//     console.log(v,i-1)
-// });
-// function hello(){
-// alert('hello world');
-// };
-
-// console.log(hello());
