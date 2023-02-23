@@ -1,7 +1,10 @@
- /* We want the square to be 200 pixels, at a 10x20 grid that means we would need to make the width 200px and the height 400px */
+ /* We want the square to be 200 pixels, at a 10x20 grid that means we would need to make the width 200px and the height 400px, in order for the 
+ .grid div to work we need to make sure that the .grid is flex*/
  .grid{
     width:200px;
     height:400px;
+    display:flex;
+    flex-wrap:wrap;
     background-color:yellow;
 
  }
