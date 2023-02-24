@@ -114,17 +114,37 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //make the tetromino move down, we use timerID so in the future we can stop 
 
-    timerID = setInterval(moveDown, 500)
+    timerID = setInterval(moveDown, 250)
 
     //create the movdown function using the Draw and Undraw functions
     function moveDown(){
         undraw()
         currentPosition += width
-        draw();
+        draw()
+        freeze();
+        
+  
 
     };
 
-   console.log(random) 
+    //create the freeze function
+    function freeze(){
+        if(current.some(v => squares[currentPosition + v + width].classList.contains('taken'))){
+            current.forEach(v => squares[currentPosition + v].classList.add('taken'))
+            random = Math.floor(Math.random()*theTetrominoes.length)
+                    current = theTetrominoes[random][currentRotation]
+                    currentPosition = 4
+                    draw();
+                    
+
+        };
+    };
+
+
+
+
+
+   console.log() 
 
 
 
