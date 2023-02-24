@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //Creating the tetrominoes, I drew a diagram to visually see how I would draw the tetrominoes in the array.
     //Since the array we created is 10x20 and is now stacked properly because of the flex wrap feature, we can create each rotation of the tetrimino by making an array of the four possible 
-    //squares by refering to the diagram and inputing the index, if we need to move down a layer we use width which will go down a whole row
+    //squares by refering to the diagram and inputing the index, if we need to move down a row we use width which will go down a whole row
 
     const lTetromino = [
         [1,2,width+1,width*2+1],
