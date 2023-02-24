@@ -75,12 +75,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //Decide where we want to draw the tetromino on the 10x20 grid
     //Where the position of the first square of the first tetromino rotation will be 
+    //the starting rotation will always be 0
     
-    let currentPosition = 4
+    let currentPosition = 4;
+    let currentRotation = 0;
 
-    //Pick a tetromino and its first rotation
 
-    let current = theTetrominoes[0][0]
+    //Pick a tetromino at random, tetrominoes.length gives us the length of the array, multiply this by math random will randomize the tetromino selection, math floor will round down
+
+    let random = Math.floor(Math.random()*theTetrominoes.length);
+
+    // //Pick a tetromino and its first rotation, the first array is thetetrominoes array, the second one is rotation of the tetromino we always want the first rotation to be the same
+    let current = theTetrominoes[random][currentRotation];
 
 
     //draw the first rotation in the first tetromino
@@ -90,12 +96,35 @@ document.addEventListener('DOMContentLoaded', function(){
     //We access stylesheet to color the tetromino through .classList.add
     
     function draw(){
-        current.forEach(function colorTetromino(v){
+        current.forEach(function drawTetromino(v){
             squares[currentPosition + v].classList.add('tetromino')
         });
     };
 
 
+
+    //undraw the tetromino to make it seem like it is moving
+    function undraw(){
+        current.forEach(function undrawTetromino(v){
+            squares[currentPosition + v].classList.remove('tetromino')
+        });
+    };
+
+
+
+    //make the tetromino move down, we use timerID so in the future we can stop 
+
+    timerID = setInterval(moveDown, 500)
+
+    //create the movdown function using the Draw and Undraw functions
+    function moveDown(){
+        undraw()
+        currentPosition += width
+        draw();
+
+    };
+
+   console.log(random) 
 
 
 
