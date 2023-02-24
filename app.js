@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
     ];
 
 
-    //Create an array of all the tetromino pieces
+    //Create an array of all the tetromino pieces, an array in an array
     const theTetrominoes = [lTetromino,sTetromino,tTetromino,bTetromino,cTetromino,iTetromino]
 
 
