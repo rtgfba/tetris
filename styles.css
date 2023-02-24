@@ -15,3 +15,8 @@
     background-color:red;
 
  }
+
+/* This is so we can use this style to be able to spectate the tetromino on the js file */
+ .tetromino{
+    background-color:blue;
+ }
