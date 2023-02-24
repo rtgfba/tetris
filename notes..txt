@@ -1,0 +1,57 @@
+understanding the .forEach method for arrays :)
+let testArray = [55, 747, 353, 8]
+testArray.forEach((v,i)=>{
+    console.log(v,i-1)
+});
+let testArray = [55, 747, 353, 8]
+testArray.forEach(function n(v,i){
+    console.log(v,i-1)
+});
+function hello(){
+alert('hello world');
+};
+
+console.log(hello())
+
+
+
+.some()- similar to .ForEach, but instead of applying logic in the array, we are checking to see if the logic we are typign in the bracket is true for some of the items 
+in the array, aka booleans
+
+
+
+doesnt work:  function freeze3(){
+        if(current.some(function touchingTaken (v){squares[currentPosition + v + width].classList.contains('taken')})){
+            current.forEach(function touchingTaken (v){
+                squares[currentPosition + v].classList.add('taken')
+                //create the new tetrimino right after
+                random = Math.floor(Math.random()*theTetrominoes.length)
+                current = theTetrominoes[random][currentRotation]
+                currentPosition = 4
+                draw();
+            })
+        };
+    };
+
+
+
+
+doesnt work: // function freeze(){
+        
+    //     if(current.some(function touchingTaken(v){
+    //         squares[currentPosition + v + width].classList.contains('taken')
+    //         {
+    //             current.forEach(function touchingTaken (v){
+    //                 squares[currentPosition + v ].classList.add('taken');
+    //                 //create the new tetromino right after
+    //                 random = Math.floor(Math.random()*theTetrominoes.length)
+    //                 current = theTetrominoes[random][currentRotation]
+    //                 currentPosition = 4
+    //                 draw();
+    //             });
+    //         }
+    //     }));
+    // };
+
+
+
