@@ -110,11 +110,23 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     };
 
+   
+
 
 
     //make the tetromino move down, we use timerID so in the future we can stop 
+    timerID = setInterval(moveDown, 300)
 
-    timerID = setInterval(moveDown, 250)
+    //assign functions ot keyCodes
+    function control(e){
+        if(e.keyCode === 37){
+            moveLeft()
+        }else if (e.keyCode === 39){
+            moveRight()
+        };
+    };
+
+    document.addEventListener('keyup', control)
 
     //create the movdown function using the Draw and Undraw functions
     function moveDown(){
@@ -127,7 +139,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     };
 
-    //create the freeze function
+    
+    //create the freeze function, we use an if statement, saying if current (which are the 4 pieces of the tetrominoes) have any true statement
+    //in this case its if any of the mare touching the div with the class taken, then turn all 4 pieces into the class taken
+    //then right after that, create a new randomized tetromino, we will pass this function into our moveDown function
     function freeze(){
         if(current.some(v => squares[currentPosition + v + width].classList.contains('taken'))){
             current.forEach(v => squares[currentPosition + v].classList.add('taken'))
@@ -142,9 +157,43 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
+    //create a rule to allow the tetrominoes to know which indexed square they are at inside of the array
+    //essentially move the tetromino left, unless it is at an edge or there is a blockage from another tetromino
+
+    function moveLeft(){
+        undraw()
+        // some is a method that looks at each item in the array and checks if the statement is true for at least one of the items
+        //if it is, the whole statement is true, the call back function could be written differntly but i choose to write it this way to grasp the concept more
+        const isAtLeftEdge = current.some(function leftEdge(v){
+            return (currentPosition + v) % width === 0})
+            // this function actually makes the current position move 1 unit to the left
+            if(!isAtLeftEdge) currentPosition -=1 
+            
+            if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
+                currentPosition +=1
+            }
+       draw()  
+    };
+
+    
+    //move right, same thing like move right but the i am finding a remainder of 9 since the right side of the array falls on 9, n+9, etc..
+
+    function moveRight(){
+        undraw()
+        
+        const isAtRightEdge = current.some(function rightEdge (v){
+            return(currentPosition + v) % width === 9})
+        if(!isAtRightEdge) currentPosition +=1
+
+        if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
+            currentPosition -=1
+        }
+        draw()
+    };
 
 
-   console.log() 
+   
+    
 
 
 
