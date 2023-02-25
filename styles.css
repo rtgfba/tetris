@@ -1,11 +1,16 @@
  /* We want the square to be 200 pixels, at a 10x20 grid that means we would need to make the width 200px and the height 400px, in order for the 
  .grid div to work we need to make sure that the .grid is flex*/
+ 
+ .container{
+   display:flex;
+ }
+ 
  .grid{
     width:200px;
     height:400px;
     display:flex;
     flex-wrap:wrap;
-    background-color:yellow;
+    background-color: rgb(97, 97, 92);
 
  }
 /* This affects all 200 pixels, now we need to shape the pixels to what they are going to be which is 20x20 */
@@ -19,4 +24,18 @@
 /* This is so we can use this style to be able to spectate the tetromino on the js file */
  .tetromino{
     background-color:blue;
+ }
+
+ .mini-grid{
+   width:80px;
+   height:80px;
+   display:flex;
+   flex-wrap:wrap;
+   background-color: rgb(97, 97, 92);
+   margin-left:50px;
+ }
+
+ .mini-grid div {
+   height:20px;
+   width:20px;
  }
